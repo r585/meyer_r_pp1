@@ -1,0 +1,40 @@
+<?xml version = "1.0"?>
+<project name= "Project 1 ANT File" default="usage" basedir=".">
+	
+	<target name="usage">
+		<echo>This is an ANT script that will build and run your .java files.
+		Type "ant build" to complile your java program and create source files.
+		Type "ant clean" to clean up your java source files.
+		Type "ant run" to execute and generate your java files.
+		</echo>
+
+	</target>
+	
+	<target name="run">
+		<echo>Generating the .java files....</echo>
+		<java classname="MatchingRunner">	
+			<arg value="10" />
+			<arg value="Hello ANT Script" />
+		</java>
+
+	</target>
+
+	<target name="build">
+		<echo>Compiling the .java source files....</echo>
+		<javac includeantruntime="false" srcdir="." destdir="." />
+	</target>
+
+	<target name="clean">
+		<echo>Cleaning the java source files....</echo>
+		<delete>
+			<fileset dir = ".">
+				<include name = "MatchingRunner.class"/>
+				<include name = "MatchingClass.class"/>
+			</fileset>
+		</delete>
+
+	</target>
+
+
+</project>
+
